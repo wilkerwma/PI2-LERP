@@ -6,29 +6,21 @@ from django.shortcuts import render_to_response
    # context = {'texto': 'Seu primeiro projeto Django no Linux/Ubuntu com Sublime Text 3'}
 #    return render(request, 'index.html')
 
-'''def home(request, url):
-  #  m_list = MyModel.objects.filter(is_new=True)
-    if url == 'home':
-        template_name = 'index.html'
-    elif url == 'agenda.html':
-        template_name = 'agenda'
-    return render(request, template_name)
 
-'''
 def home(request):
 	return render_to_response('index.html')
 
 def index(request):
-    return render(request, 'index.html')
+    return render_to_response('index.html')
 
 def agenda(request):
-	return render(request, 'agenda.html',{}), 
+	return render_to_response('agenda.html')
 
 def contato(request):
-	return render(request, 'contato.html',{}),
+	return render_to_response('contato.html')
 
 def historico(request):
-	return render(request, 'historico.html',{}),
+	return render_to_response( 'historico.html')
 
 def sobre(request):
-	return render(request, 'sobre.html',{}),
+	return render_to_response('sobre.html')

@@ -29,8 +29,8 @@ from core.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$','core.views.home', name = 'home'),
-    url(r'^agenda$','core.views.agenda'),
+    url(r'^agenda$','core.views.agenda', name = 'agenda'),
     url(r'^contato$','core.views.contato'),
-    url(r'^historico$','core.views.historico'),
+    url(r'^historico$','core.views.historico', name = 'historico'),
     url(r'^sobre$','core.views.sobre'), 
 ]
