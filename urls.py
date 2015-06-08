@@ -32,5 +32,7 @@ urlpatterns = [
     url(r'^agenda$','core.views.agenda', name = 'agenda'),
     url(r'^contato$','core.views.contato'),
     url(r'^historico$','core.views.historico', name = 'historico'),
+    url(r'^hist_limp$','core.views.hist_limp'),
+    url(r'^hist_turb$','core.views.hist_turb'),
     url(r'^sobre$','core.views.sobre'), 
 ]
