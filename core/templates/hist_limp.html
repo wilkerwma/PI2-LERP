@@ -51,18 +51,32 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Lista de Limpezas</div>
-
-  <!-- Table -->
-  <table class="table">
-  </table>
        <ul>
-                {% for post in posts %}
-                    <div>{{post.collect_date}}  {{post.state_of_success}}</div>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Data da Coleta</th>
+                      <th>Sucesso da Coleta</th>
+                      <th>Tempo de Limpeza</th>
+                    </tr>
+                  </thead>
+                  {% for post in posts %}
+                  <tbody>
+                    <tr>
+                      <td>{{post.collect_date}}</td>
+                      <td>{{post.state_of_success}}</td>
+                      <td>{{post.time_of_cleaning}} </td> 
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+                   <!-- <div>{{post.collect_date}}  {{post.state_of_success}}</div>
                     <ul>
                         <div>{{post.time_of_cleaning}}</div>
                         
-                    </ul>
-                {% endfor %}
+                    </ul> -->
+                
+
 
             </ul>
  

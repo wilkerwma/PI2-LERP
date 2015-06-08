@@ -2,10 +2,6 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from core.models import *
 from django.template import RequestContext
-#def home(request):
-   # context = {'texto': 'Seu primeiro projeto Django no Linux/Ubuntu com Sublime Text 3'}
-#    return render(request, 'index.html')
-
 
 def home(request):
 	return render_to_response('index.html')
@@ -39,4 +35,14 @@ def hist_limp(request):
   return render_to_response('hist_limp.html', variables)
 
 def hist_turb(request):
-  return render_to_response('hist_turb.html')
+  posts = History.objects.all().order_by("-collect_date")
+
+  if request.method == 'POST':
+      form = History(request.POST)
+      if form.is_valid():
+          form.save()
+  else:
+      form = History()
+      variables = RequestContext(request, {'form':form, 'posts':posts})
+
+  return render_to_response('hist_turb.html', variables)

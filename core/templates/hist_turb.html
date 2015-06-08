@@ -47,6 +47,34 @@
         </nav>
       </div>
 
+
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Lista de Coletas de Turbidez</div>
+       <ul>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Data da Coleta</th>
+                      <th>Sensor Baixo</th>
+                      <th>Sensor Médio</th>
+                      <th>Sensor Alto</th>
+                      <th>Sensor Chão</th>
+                    </tr>
+                  </thead>
+                  {% for post in posts %}
+                  <tbody>
+                    <!-- <tr>
+                      <td>{{post.collect_date}}</td>
+                      <td>{{post.sensor_low}}</td>
+                      <td>{{post.sensor_mid}}</td> 
+                      <td>{{post.sensor_high}}</td> 
+                      <td>{{post.sensor_floor}}</td>
+                    </tr> -->
+                  </tbody>
+                  {% endfor %}
+                </table>
+
       <!-- Example row of columns 
       <div class="row">
         <div class="col-lg-6">
