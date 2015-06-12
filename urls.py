@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$','core.views.home', name = 'home'),
     url(r'^agenda$','core.views.agenda', name = 'agenda'),
+    url(r'^index$','core.views.home'),
     url(r'^contato$','core.views.contato'),
     url(r'^historico$','core.views.historico', name = 'historico'),
     url(r'^hist_limp$','core.views.hist_limp'),
