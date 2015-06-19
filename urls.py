@@ -17,14 +17,6 @@ from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from core.views import *
 
-'''urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^$',home, name = 'home'),
-    url(r'^agenda$','agenda', name ='home'),
-    url(r'^contato$',contato),
-    url(r'^historico$','historico'),
-    url(r'^sobre$','sobre'), 
-)'''
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
