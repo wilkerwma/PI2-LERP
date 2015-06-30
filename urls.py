@@ -18,7 +18,7 @@ from django.contrib import admin
 from core.views import *
 
 
-urlpatterns = [
+urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$','core.views.home', name = 'home'),
     url(r'^agenda$','core.views.agenda', name = 'agenda'),
@@ -28,4 +28,7 @@ urlpatterns = [
     url(r'^hist_limp$','core.views.hist_limp'),
     url(r'^hist_turb$','core.views.hist_turb'),
     url(r'^sobre$','core.views.sobre'), 
-]
+    url(r'^ligar$','core.views.ligar',name='ligar'),
+    url(r'^desligar$','core.views.desligar',name='desligar'),
+    url(r'^update$','core.views.update',name='update'),
+)

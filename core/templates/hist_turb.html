@@ -70,26 +70,34 @@
 
       <div class="panel panel-default">
   <!-- Default panel contents -->
+  
+  <div class="panel-heading">
+      <form action="update" method="GET">
+        <button class="btn btn-lg btn-success" type="submit" value="turbidez">Atualizar Turbidez</button>
+      </form>
+
+  </div>
   <div class="panel-heading">Lista de Coletas de Turbidez</div>
+
        <ul>
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>Data da Coleta</th>
+                      <th>Data e Hora da Coleta</th>
                       <th>Sensor Baixo</th>
                       <th>Sensor Médio</th>
                       <th>Sensor Alto</th>
                       <th>Sensor Chão</th>
                     </tr>
                   </thead>
-                  {% for post in posts %}
+                  {% for history in history %}
                   <tbody>
                     <tr>
-                      <td>{{post.collect_date}}</td>
-                      <td>{{post.sensor_low}}</td>
-                      <td>{{post.sensor_mid}}</td> 
-                      <td>{{post.sensor_high}}</td> 
-                      <td>{{post.sensor_floor}}</td>
+                      <td>{{history.collect_time}}</td>
+                      <td>{{history.sensor_low}}</td>
+                      <td>{{history.sensor_mid}}</td> 
+                      <td>{{history.sensor_high}}</td> 
+                      <td>{{history.sensor_floor}}</td>
                     </tr>
                   </tbody>
                   {% endfor %}

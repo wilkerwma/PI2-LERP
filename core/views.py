@@ -3,6 +3,9 @@ from django.shortcuts import render_to_response
 from core.models import *
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
+import urllib2
+import xml.etree.ElementTree as ET
+
 
 def home(request):
     state = "Please log in below..."
@@ -25,6 +28,17 @@ def home(request):
 
 #def home(request):
 #	return render_to_response('index.html')
+def ligar (request):
+  cleaning= Cleaning()
+  cleaning.state_of_success =True
+  time_of_cleaning = 0 
+  cleaning.save()
+
+  return render_to_response('index.html', context_instance = RequestContext(request) )
+
+def desligar(request):
+  
+  return render_to_response('index.html', context_instance = RequestContext(request))  
 
 def agenda(request):
 	return render_to_response('agenda.html')
@@ -39,27 +53,43 @@ def sobre(request):
 	return render_to_response('sobre.html')
 
 def hist_limp(request):
-  posts = Cleaning.objects.all().order_by("-collect_date")
+  
+  cleaning= Cleaning.objects.all()
 
-  if request.method == 'POST':
-      form = Cleaning(request.POST)
-      if form.is_valid():
-          form.save()
-  else:
-      form = Cleaning()
-      variables = RequestContext(request, {'form':form, 'posts':posts})
-
-  return render_to_response('hist_limp.html', variables)
+  return render_to_response('hist_limp.html', {'cleaning': cleaning})
 
 def hist_turb(request):
-  posts = History.objects.all().order_by("-collect_date")
+  history = History.objects.all()
+  
+  return render_to_response('hist_turb.html', {'history': history})
 
-  if request.method == 'POST':
-      form = History(request.POST)
-      if form.is_valid():
-          form.save()
-  else:
-      form = History()
-      variables = RequestContext(request, {'form':form, 'posts':posts})
 
-  return render_to_response('hist_turb.html', variables)
+def update(request):
+  
+  file = urllib2.urlopen('https://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec')
+  tree = ET.parse(file)
+  root = tree.getroot()
+  history = History()
+
+  for path in [ './ad1']:
+    node = tree.find(path)
+    history.sensor_low=int(node.text)
+    print (history.sensor_low)
+  for path in [ './ad2']:
+    node = tree.find(path)
+    history.sensor_mid=int(node.text)
+    print (history.sensor_mid)
+  for path in [ './ad3']:
+    node = tree.find(path)
+    history.sensor_high=int(node.text)
+    print (history.sensor_high)
+  for path in [ './ad4']:
+    node = tree.find(path)
+    history.sensor_floor=int(node.text)
+    print (history.sensor_floor)
+
+  history.save()
+  history = History.objects.all()
+
+  return render_to_response('hist_turb.html', {'history': history})
+

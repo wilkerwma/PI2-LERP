@@ -9,6 +9,26 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">LERP</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+    
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <br></br>
+
     <title>LERP - Histórico</title>
 
     <!-- Bootstrap core CSS -->
@@ -46,10 +66,12 @@
           </ul>
         </nav>
       </div>
-
-<br></br>
+      
 <div class="panel panel-default">
   <!-- Default panel contents -->
+  <form action="hist_limp" method="GET">
+        <button class="btn btn-lg btn-success" type="submit" value="limpeza">Atualizar Limpeza</button>
+  </form>
   <div class="panel-heading">Lista de Limpezas</div>
        <ul>
                 <table class="table table-striped">
@@ -60,12 +82,12 @@
                       <th>Tempo de Limpeza</th>
                     </tr>
                   </thead>
-                  {% for post in posts %}
+                  {% for cleaning in cleaning %}
                   <tbody>
                     <tr>
-                      <td>{{post.collect_date}}</td>
-                      <td>{{post.state_of_success}}</td>
-                      <td>{{post.time_of_cleaning}} </td> 
+                      <td>{{cleaning.collect_date}}</td>
+                      <td>{{cleaning.state_of_success}}</td>
+                      <td>{{cleaning.time_of_cleaning}} </td> 
                     </tr>
                   </tbody>
                   {% endfor %}

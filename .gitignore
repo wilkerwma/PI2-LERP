@@ -1,0 +1,5 @@
+*.pyc
+*.mo
+lerp/settings.py
+*.swp
+*~
