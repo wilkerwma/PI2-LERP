@@ -89,7 +89,7 @@ def update(request):
     print (history.sensor_floor)
 
   history.save()
-  history = History.objects.all()
+  history = History.objects.all().order_by("-collect_time")
 
   return render_to_response('hist_turb.html', {'history': history})
 
