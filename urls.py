@@ -31,4 +31,5 @@ urlpatterns = patterns('',
     url(r'^ligar$','core.views.ligar',name='ligar'),
     url(r'^desligar$','core.views.desligar',name='desligar'),
     url(r'^update$','core.views.update',name='update'),
+    url(r'^logout$','core.views.logout',name='logout'),
 )

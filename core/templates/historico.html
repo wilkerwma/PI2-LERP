@@ -21,8 +21,8 @@
           <a class="navbar-brand" href="/">LERP</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-    
+          <form class="navbar-form navbar-right" action="logout" method="GET">
+            <button class="btn btn-lg btn-success">Logout</button>    
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -48,6 +48,8 @@
   </head>
 
   <body>
+    {% if user.is_authenticated %}
+     
 
     <div class="container">
 
@@ -89,6 +91,9 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+    {% else %}
+    {% include "../templates/logout.html" %}
+    {% endif%}
 
   </body>
 </html>

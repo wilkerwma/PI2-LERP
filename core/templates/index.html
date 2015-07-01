@@ -9,27 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../static/ico/favicon.ico">
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container"> 
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">LERP</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-           
-      
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
-    
+   
 
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +43,7 @@
  
         x=window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');   
         } 
-        window.close('https://script.googleusercontent.com/macros/echo?user_content_key=pKxfLrSDAUXMi-s-kc6clxcEcEaAXeOoyd5vk2W8YRuc9jVAXllNBgA2YwDkkgoHL8j35m6UB3M_hRSbgiT5_VHLvccd-gF6m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAlvomQw6Xu-dF_rytuBa220_Hn86RvLCRH_Npm17-jalXJEsSaLeOwVxJZNojdEx7k_kb_R1mxHWsHbTQencrQ&lib=Mn6kgEQE8zkA-ZuV9qDEDOB0LkE2hh7jd');
+        
     </script> 
 
   </head>
@@ -71,9 +51,28 @@
   <body>
 
     {% if user.is_authenticated %}
-     {{ user.username }}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container"> 
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LERP</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right" action="logout" method="GET">
+          <button class="btn btn-lg btn-success">Logout</button>    
+        </form>
+         
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
       
     <div class="container">
+    
 
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
@@ -115,6 +114,21 @@
 
       {{ state }}
       {% else %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container"> 
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LERP</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse"> 
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
   <form action="/" method="post">
     {% csrf_token %}
 
@@ -140,7 +154,7 @@
         password:
         <input type="password" name="password" value="" /><br /> -->
           <span class="input-group-btn">
-            <button class="btn btn-default" type="submit" value="Log In">Log in!</button>
+            <button class="btn btn-default" type="submit" value="Log In">Login</button>
           </span>
       </center>
     '

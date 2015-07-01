@@ -21,8 +21,8 @@
           <a class="navbar-brand" href="/">LERP</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-    
+          <form class="navbar-form navbar-right" action="logout" method="GET">
+            <button class="btn btn-lg btn-success">Logout</button>    
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -49,6 +49,8 @@
   </head>
 
   <body>
+   {% if user.is_authenticated %}
+    
 
     <div class="container">
 
@@ -69,11 +71,18 @@
 
       <!-- Jumbotron -->
       <div class="jumbotron">
-        <h1 ><b>Contato</b></h1>
-        
-        <p><br>Wilker Mesquita - wilkerwma@gmail.com</br></p>
-        <p><br>Diego Motoca - motoca@gmail.com</br></p>
-        <p><br>Nome  - email@email.com</br></p>
+        <h1 ><b>Contatos</b></h1>
+        <p><br>ALEXANDRE SEIJI FUKUDA RIBAS - email@email.com</br></p>
+        <p><br>ANA CAROLINA AVILA SANTOS - email@email.com</br></p>
+        <p><br>DANIEL PIEROBON DE CARVALHO  - email@email.com</br></p>       
+        <p><br>DIEGO GONÇALVES DUARTE - email@email.com</br></p>
+        <p><br>DIOGO DE OLIVEIRA COSTA - motoca@gmail.com</br></p>
+        <p><br>GUILHERME PACHECO  - email@email.com</br></p>
+        <p><br>ISABELA CRISTINA CURADO  - email@email.com</br></p>
+        <p><br>KARINA GAVIÃO JUNQUEIRA  - email@email.com</br></p>
+        <p><br>THIAGO LOPES AMARAL  - email@email.com</br></p>
+        <p><br>VINICIUS RANGEL M VASCONCELOS  - vinirmv23@gmail.com</br></p>
+        <p><br>WILER MESQUITA DE ASSUNÇÃO  - wilkerwma@gmail.com</br></p>
 
       </div>
 
@@ -88,5 +97,8 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+    {% else %}
+    {% include "../templates/logout.html" %}
+    {% endif%}
   </body>
 </html>
