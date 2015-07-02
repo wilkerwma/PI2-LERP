@@ -14,7 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url, patterns
+from django.conf import settings
 from django.contrib import admin
+admin.autodiscover()
 from core.views import *
 
 
@@ -32,4 +34,6 @@ urlpatterns = patterns('',
     url(r'^desligar$','core.views.desligar',name='desligar'),
     url(r'^update$','core.views.update',name='update'),
     url(r'^logout$','core.views.logout',name='logout'),
+    (r'^media/(.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+
 )

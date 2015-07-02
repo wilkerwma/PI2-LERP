@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 
 
 def home(request):
-    state = "Please log in below..."
+    state = "Entre com nome de usario e senha "
     username = password = ''
     if request.POST:
         username = request.POST.get('username')
@@ -19,11 +19,11 @@ def home(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                state = "You're successfully logged in!"
+                state = "Voce foi logado com sucesso!"
             else:
-                state = "Your account is not active, please contact the site admin."
+                state = "Sua conta nao esta ativa, por favor contate o adminitrador do site."
         else:
-            state = "Your username and/or password were incorrect."
+            state = "Seu nome de usuario e senha estao incorretos."
 
     return render_to_response('index.html',{'state':state, 'username': username}, context_instance = RequestContext(request))
 

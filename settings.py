@@ -117,3 +117,10 @@ STATICFILES_FINDER=(
 )
 
 STATIC_URL = '/static/'
+
+ROOTDIR = os.path.dirname(__file__)
+MEDIA_URL= '/media/'
+MEDIA_ROOT= os.path.join(ROOTDIR, 'media')
+ADMIN_MEDIA_PREFIX = '/admin_media/'
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG

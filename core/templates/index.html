@@ -36,8 +36,8 @@
           url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida4=0'
         }
         
-        var width = 250;
-        var height = 250;
+        var width = 400;
+        var height = 400;
         var left = 99;
         var top = 99;
  
@@ -60,7 +60,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LERP</a>
+          <a class="navbar-brand" href="#">LERP: Limpeza De Reservatorios Prediais</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right" action="logout" method="GET">
@@ -91,7 +91,7 @@
    <!-- Jumbotron -->
       <div class="jumbotron">
         <h1 >Iniciar Limpeza!</h1>
-        <p class="lead">A sua Caixa D'água precisa de Limpeza e nós recomendamos que comece sua limpeza clicando no botão "Começar Limpeza".</p> 
+        <p class="lead">Verifique no histórico se a sua Caixa D'água precisa de Limpeza e comece agora. ".</p> 
         <p class = "text-danger">Caso alguma coisa o impeça, favor avaliar a situação e agendar a limpeza para uma data adequada.</p>
         <form action="ligar" method="GET">
           <button class="btn btn-lg btn-success" onclick="setaURL(1)" name="ligar" value="ligar">Começar Limpeza</button>
@@ -123,42 +123,54 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LERP</a>
+          <a class="navbar-brand" href="#">LERP: Limpeza De Reservatorios Prediais</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse"> 
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-  <form action="/" method="post">
-    {% csrf_token %}
-
-    {% if next %}
-    <input type="hidden" name="next" value="{{ next }}" />
-    {% endif %}
-      <div class="jumbotron">
-        <h2 >Bem Vindo ao LERP!</h2>
-        <p class="lead">Acesse já o sistema.</p> 
-      </div>
-
+  <center>  
+  <table  width="1000px" height="400px">  
+  <tbody>
+    <tr>
+      <td>
       <center>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Username" name="username" value="{{ username}}" >
-      </div>
-    
-       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Password" name="password" value=""  >
-      </div>
-    
-        <!--username: 
-        <input type="text" name="username" value="{{ username}}" /><br /> 
-        password:
-        <input type="password" name="password" value="" /><br /> -->
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit" value="Log In">Login</button>
-          </span>
+
+        <img src="../media/logo2.png" width="600px" height="400px"/>
       </center>
-    '
-  </form>
+          
+      </td>
+      <td>
+      <center>  
+        <form action="/" method="post">
+          {% csrf_token %}
+
+          {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+          {% endif %}
+            <div >
+              <h2 >Bem Vindo ao LERP!</h2>
+            {{ state }} 
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Username" name="username" value="{{username}}">
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Password" name="password" value=""  >
+            </div>
+    
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit" value="Log In">Entrar</button>
+            </span> 
+            </div>
+            
+          
+        </form>
+        </center>    
+      </td>    
+    </tr>
+  </tbody>
+  </table>
+  </center>
  {% endif%}
    
   </body>

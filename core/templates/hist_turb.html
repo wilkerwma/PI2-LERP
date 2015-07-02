@@ -9,24 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">LERP</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="logout" method="GET">
-            <button class="btn btn-lg btn-success">Logout</button>    
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+    
     <br></br>
 
     <title>LERP - Histórico</title>
@@ -50,6 +33,24 @@
 
   <body>
   {% if user.is_authenticated %}
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">LERP: Limpeza De Reservatorios Prediais</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" action="logout" method="GET">
+            <button class="btn btn-lg btn-success">Logout</button>    
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
      
 
     <div class="container">
@@ -75,11 +76,24 @@
   
     
       <form action="update" method="GET">
-        <button class="btn btn-lg btn-success" type="submit" value="turbidez">Atualizar Turbidez</button>
+        <button class="btn btn-lg btn-success" type="submit" value="turbidez">Atualizar Turbidez </button>
       </form>
-
     
-  <div class="panel-heading">Lista de Coletas de Turbidez</div>
+  <div class="panel-heading">
+  <center>
+    <table align="left">
+      <tr>
+        <td > </td> 
+      </tr>    
+    </table> 
+  </center> Lista de Coleta de Tubidez
+    
+    <table align="right">
+      <tr>
+        <td > UNT - Unidades Nefelométricas de Turbidez</td> 
+      </tr>    
+    </table>     
+  </div>
 
        <ul>
                 <table class="table table-striped">
@@ -96,10 +110,10 @@
                   <tbody>
                     <tr>
                       <td>{{history.collect_time}}</td>
-                      <td>{{history.sensor_low}}</td>
-                      <td>{{history.sensor_mid}}</td> 
-                      <td>{{history.sensor_high}}</td> 
-                      <td>{{history.sensor_floor}}</td>
+                      <td>{{history.sensor_low}} UNT</td>
+                      <td>{{history.sensor_mid}} UNT</td> 
+                      <td>{{history.sensor_high}} UNT</td> 
+                      <td>{{history.sensor_floor}} UNT</td>
                     </tr>
                   </tbody>
                   {% endfor %}
