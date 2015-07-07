@@ -1,10 +1,10 @@
 from django.db import models
-from datetime import date, time
+from datetime import datetime
 
 
 # Create your models here.
 class History(models.Model):
-	collect_time = models.DateTimeField(auto_now=True)
+	collect_time = models.DateTimeField(default=datetime.now,blank=True)
 	sensor_low = models.CharField(max_length=30)
 	sensor_mid = models.CharField(max_length=30)
 	sensor_high = models.CharField(max_length=30)
