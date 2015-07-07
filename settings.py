@@ -115,7 +115,7 @@ TEMPLATES_DIRS = (
 STATICFILES_FINDER=(
     os.path.join(BASE_DIR, 'static'),
 )
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 ROOTDIR = os.path.dirname(__file__)
