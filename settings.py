@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lerp',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'USER': 'root',                      # Not used with sqlite3.
         'PASSWORD': '12345',                 # Not used with sqlite3.
         'HOST': 'localhost',                 # Set to empty string for localhost. Not used with sqlite3.
