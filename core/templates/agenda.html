@@ -43,6 +43,7 @@
         }
         function setaURL(parameter){
         
+
         url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida1=1' 
        
         
@@ -51,11 +52,18 @@
         var left = 99;
         var top = 99;
 
-        for(i=0;i<6;i++){
-          sleep(5000)  
-        }  
-        y=window.open()
- 
+        if(parameter ==6){
+          alert("Seu agendamento foi efetuado com sucesso! aguarde 30 segundos")
+          for(i=0;i<parameter;i++){
+            sleep(5000)  
+          }
+        }else{
+          alert("Seu agendamento foi efetuado com sucesso! aguarde 5 minutos")
+          for(i=0;i<parameter;i++){
+            sleep(5000)  
+          }
+        } 
+           
         x=window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=yes, toolbar=yes, location=yes, directories=no, menubar=yes, resizable=no, fullscreen=no');   
            
         }
