@@ -28,22 +28,32 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script language="javascript">  
+
+        function sleep(milliseconds) {
+          var start = new Date().getTime();
+          for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds){
+              break;
+            }
+          }
+        }
         function setaURL(parameter){
         if (parameter==1){
-          url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida4=1' 
+          url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida1=1' 
         }
         if (parameter==0){
-          url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida4=0'
+          url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida1=0'
         }
         
-        var width = 400;
-        var height = 400;
+        var width = 50;
+        var height = 50;
         var left = 99;
         var top = 99;
- 
-        x=window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');   
-        } 
-        
+
+        x=window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=yes, toolbar=yes, location=yes, directories=no, menubar=yes, resizable=no, fullscreen=no');   
+           
+        }
+
     </script> 
 
   </head>
@@ -155,7 +165,7 @@
               <input type="text" class="form-control" placeholder="Username" name="username" value="{{username}}">
             </div>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Password" name="password" value=""  >
+              <input type="password" class="form-control" placeholder="Password" name="password" value=""  >
             </div>
     
             <span class="input-group-btn">

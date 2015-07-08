@@ -104,6 +104,7 @@
                       <th>Sensor Médio</th>
                       <th>Sensor Alto</th>
                       <th>Sensor Chão</th>
+                      <th>Nivel Turbidez</th>
                     </tr>
                   </thead>
                   {% for history in history %}
@@ -114,6 +115,11 @@
                       <td>{{history.sensor_mid}} UNT</td> 
                       <td>{{history.sensor_high}} UNT</td> 
                       <td>{{history.sensor_floor}} UNT</td>
+                      {% if history.sensor_floor <= 30  %}
+                        <td>Turbidez elevada </td>
+                       {% else %}
+                        <td>Turbidez Normal</td>
+                      {% endif %} 
                     </tr>
                   </tbody>
                   {% endfor %}

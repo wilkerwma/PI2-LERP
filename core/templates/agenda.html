@@ -31,6 +31,38 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script language="javascript">  
+
+        function sleep(milliseconds) {
+          var start = new Date().getTime();
+          for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds){
+              break;
+            }
+          }
+        }
+        function setaURL(parameter){
+        
+        url= 'http://script.google.com/macros/s/AKfycbzi0YFdb7ewTqv6_SJmICcITJ9Af_mRasmTaJQS8snG8ro9FQQ0/exec?saida1=1' 
+       
+        
+        var width = 50;
+        var height = 50;
+        var left = 99;
+        var top = 99;
+
+        for(i=0;i<6;i++){
+          sleep(5000)  
+        }  
+        y=window.open()
+ 
+        x=window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=yes, toolbar=yes, location=yes, directories=no, menubar=yes, resizable=no, fullscreen=no');   
+           
+        }
+
+    </script> 
+
+
   </head>
 
   <body>
@@ -76,9 +108,17 @@
       <div class="jumbotron">
         <h1 >Agendamento</h1>
         <p class="lead">Escolha abaixo uma das opções de agendamento para sua limpeza:</p>
-        <p><a class="btn btn-sx btn-success" href="#" role="button">1 dia </a></p>
-         <p><a class="btn btn-sx btn-success" href="#" role="button">1 semana  </a></p>
-          <p><a class="btn btn-sx btn-success" href="#" role="button">Escolher</a></p>
+        <p>
+          <form action="ligar" method="GET">
+            <button class="btn btn-lg btn-success" onclick="setaURL(6)" name="ligar" value="ligar">1 dia</button>
+          </form>
+        </p>
+         <p>
+           <form action="ligar" method="GET">
+            <button class="btn btn-lg btn-success" onclick="setaURL(60)" name="ligar" value="ligar">1 semana</button>
+          </form>
+         </p>
+    
       </div>
 
       
